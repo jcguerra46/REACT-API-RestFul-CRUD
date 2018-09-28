@@ -111,59 +111,62 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">CRUD React</h1>
+          <h1 className="App-title">React API RestFul CRUD</h1>
         </header>
         <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-6 col-lg-6">
 
-          {
-            this.state.notification &&
-            <div className="alert alert-success mt-3">
-              <p className="text-center">{this.state.notification}</p>
-            </div>
-          }
-          {
-            this.state.loading &&
-            <img src={loadingGif} alt="loading gif" />
-          }
-          <h2 className="text-center p-4">App de Tareas</h2>
-         
+              {
+                this.state.notification &&
+                <div className="alert alert-success mt-3">
+                  <p className="text-center">{this.state.notification}</p>
+                </div>
+              }
+              {
+                this.state.loading &&
+                <img src={loadingGif} alt="loading gif" />
+              }
+              <h2 className="text-center p-4">Todos App</h2>
+             
 
-          <div className="input-group">
-            <input 
-              type="text" 
-              className="form-control mb-3" 
-              placeholder="Agrega una nueva tarea" 
-              aria-label="Agrega una nueva tarea" 
-              aria-describedby="button-addon2"
-              onChange={this.handleChange}
-              value={this.state.newTodo}
-            />
-            <div className="input-group-append">
-              <button 
-                className="btn btn-info form-control" 
-                type="button" 
-                id="button-addon2"
-                onClick={this.state.editing ? this.updateTodo : this.addTodo}
-                disabled={this.state.newTodo.length < 5}
-              >{this.state.editing ? 'Actualizar Tarea' : 'Agregar Tarea'}</button>
+              <div className="input-group">
+                <input 
+                  type="text" 
+                  className="form-control mb-3" 
+                  placeholder="Agrega una nueva tarea" 
+                  aria-label="Agrega una nueva tarea" 
+                  aria-describedby="button-addon2"
+                  onChange={this.handleChange}
+                  value={this.state.newTodo}
+                />
+                <div className="input-group-append">
+                  <button 
+                    className="btn btn-info form-control" 
+                    type="button" 
+                    id="button-addon2"
+                    onClick={this.state.editing ? this.updateTodo : this.addTodo}
+                    disabled={this.state.newTodo.length < 5}
+                  >{this.state.editing ? 'Actualizar Tarea' : 'Agregar Tarea'}</button>
+                </div>
+              </div>
+              
+
+              {
+                (!this.state.editing || this.state.loading) &&
+                <ul className="list-group">
+                  {this.state.todos.map((item, index) => {
+                    return <ListItem 
+                              key={item.id}
+                              item={item}
+                              editTodo={() => {this.editTodo(index); }}
+                              deleteTodo={() => {this.deleteTodo(index); }}
+                           />;
+                  })}
+                </ul>
+              }
             </div>
           </div>
-          
-
-          {
-            (!this.state.editing || this.state.loading) &&
-            <ul className="list-group">
-              {this.state.todos.map((item, index) => {
-                return <ListItem 
-                          key={item.id}
-                          item={item}
-                          editTodo={() => {this.editTodo(index); }}
-                          deleteTodo={() => {this.deleteTodo(index); }}
-                       />;
-              })}
-            </ul>
-          }
-
         </div>
       </div>
     );
