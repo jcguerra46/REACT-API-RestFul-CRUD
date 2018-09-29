@@ -6,6 +6,23 @@ Demo: You can see [React API RestFul CRUD](https://react-api-restful-crud.netlif
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
+```
+## App Info
+
+### Autor
+
+[JCGuerra Linkedin](https://www.linkedin.com/in/jcguerra)
+[JCGuerra Solutions](http://jcguerra.solutions)
+
+### Version
+
+1.0.0
+
+### License
+
+This project is licensed under the MIT License
+```
+
 Below you will find some information on how to perform common tasks.<br>
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
